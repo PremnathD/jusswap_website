@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 const StatsBanner = () => {
   return (
     <section className="w-full relative px-6 py-12 md:py-20 flex justify-center z-20">
@@ -16,7 +18,13 @@ const StatsBanner = () => {
         </div>
 
         {/* Main White Box */}
-        <div className="bg-white rounded-[24px] md:rounded-[32px] w-full px-8 py-10 md:px-14 md:py-12 flex flex-col md:flex-row items-center justify-between gap-10 md:gap-4 shadow-[0_8px_30px_rgb(0,0,0,0.03)] border border-gray-100">
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-50px" }}
+          className="bg-white rounded-[24px] md:rounded-[32px] w-full px-8 py-10 md:px-14 md:py-12 flex flex-col md:flex-row items-center justify-between gap-10 md:gap-4 shadow-[0_8px_30px_rgb(0,0,0,0.03)] border border-gray-100"
+        >
           
           {/* Left Text */}
           <div className="w-full md:w-1/3 text-center md:text-left">
@@ -46,7 +54,7 @@ const StatsBanner = () => {
             </div>
           </div>
 
-        </div>
+        </motion.div>
       </div>
     </section>
   );
